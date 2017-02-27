@@ -20,8 +20,20 @@ class Item {
         return isset($item[0]) ? $item[0] : null;
     }
 
-    public function get_items() {
-        $items= $this->db->query("SELECT * FROM items");
+    public function get_items($data = null) {
+        $condition = "WHERE 1 ";
+
+        if($data) {
+            foreach ($data as $key => $datum) {
+                switch ($key) {
+                    case "category":
+                        $condition .= " AND CategoryID = $datum";
+                        break;
+                }
+            }
+        }
+
+        $items= $this->db->query("SELECT * FROM items $condition");
 
         return isset($items[0]) ? $items : null;
     }

@@ -24,17 +24,17 @@ $items = $item->get_items();
                 <input type="text" id="id" class="form-control" name="id" placeholder="Կոդ">
             </div>
             <div class="form-group">
-                <label for="categoryID">Կատեգորիա</label>
-                <select id="categoryID" class="form-control" name="categoryID" required>
-                    <option selected disabled value="">Ընտրեք կատեգորիան</option>
+                <label for="category">Կատեգորիա</label>
+                <select id="category" class="form-control" name="category" required>
+                    <option selected value="">Ընտրված չէ</option>
                     <?php foreach($categories as $category) { ?>
                         <option value="<?= $category["ID"]; ?>"><?= $category["Name"]; ?></option>
                     <?php } ?>
                 </select>
             </div>
             <div class="form-group">
-                <label for="categoryID">Ապրանք</label>
-                <select id="categoryID" class="form-control" name="categoryID" required>
+                <label for="item">Ապրանք</label>
+                <select id="item" class="form-control" name="item" required>
                     <option selected disabled value="">Ընտրեք ապրանքը</option>
                     <?php foreach($items as $item) { ?>
                         <option value="<?= $item["ID"]; ?>"><?= $item["Name"]; ?></option>

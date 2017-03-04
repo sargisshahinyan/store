@@ -18,7 +18,7 @@ $items = $item->get_items();
 ?>
 <article class="container">
     <div class="row">
-        <form class="col-md-offset-1 col-md-10" method="post" action="categories.php">
+        <form class="col-md-offset-1 col-md-10" action="#">
             <div class="form-group">
                 <label for="id">Կոդ</label>
                 <input type="text" id="id" class="form-control" name="id" placeholder="Կոդ">
@@ -41,15 +41,23 @@ $items = $item->get_items();
                     <?php } ?>
                 </select>
             </div>
-            <input type="hidden" name="action" value="insert">
-            <button type="submit" class="btn btn-primary">Ավելացնել</button>
+            <div class="form-group">
+                <label for="quantity">Քանակ</label>
+                <input type="number" min="1" id="quantity" class="form-control" placeholder="Քանակ">
+            </div>
+            <button type="button" id="add-to-list" class="btn btn-primary">Ավելացնել</button>
         </form>
     </div>
+    <div class="row display">
+        <ul id="item-list" class="list-group col-md-offset-1 col-md-10"></ul>
+    </div>
     <div class="row">
-
+        <div class="col-md-offset-10 col-md-2 text-right">
+            <button type="button" class="btn btn-success" id="sell">Վաճառել</button>
+        </div>
     </div>
 </article>
-<script src="js/search.js"></script>
+<script src="js/sell.js"></script>
 <?php
 include "footer.php";
 ?>

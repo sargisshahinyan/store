@@ -1,0 +1,17 @@
+body {
+    padding-bottom: 100px;
+}
+
+div.display {
+    background-color: #eeeeee;
+    height: 400px;
+    overflow-y: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 20px 0;
+}
+
+div.display span.del {
+    cursor: pointer;
+    background-color: #d9534f;;
+}

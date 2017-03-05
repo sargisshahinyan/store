@@ -6,6 +6,7 @@ $(document).ready(function () {
         $items = $("#item"),
         $quantity = $("#quantity"),
         $itemsList = $("#item-list"),
+        $addButton = $("#add-to-list"),
         itemsList = [];
 
     $("#id").on("keyup", function () {
@@ -43,7 +44,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#add-to-list").click(function () {
+    $addButton.click(function () {
         var id = $items.find("option:selected").val(),
             name = $items.find("option:selected").text(),
             quantity = $quantity.val();

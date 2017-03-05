@@ -8,9 +8,6 @@
 
 include "libs.php";
 
-/*echo "<pre>";
-print_r($_SERVER);*/
-
 $request = isset($_SERVER["PATH_INFO"]) ? explode("/", $_SERVER["PATH_INFO"]) : null;
 
 if($request && count($request) > 1) {
@@ -35,6 +32,18 @@ if($request && count($request) > 1) {
             $response = $id ? $item->get_item((int)$id) : $item->get_items($data);
 
             echo json_encode($response);
+            break;
+        case "sell":
+            $deal = new Deal(new db());
+            $data = $_POST;
+
+            if(!empty($data["items"])) {
+                $deal->sell([
+                    "items" => $data["items"]
+                ]);
+            }
+
+            echo true;
             break;
         default:
             header("Wrong target", true, 400);

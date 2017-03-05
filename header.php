@@ -52,6 +52,7 @@ $db = new db();
                                 <li class="<?= $navs[2]; ?>"><a href="items.php">Ապրանքներ</a></li>
                                 <li class="<?= $navs[3]; ?>"><a href="purchases.php">Առք</a></li>
                                 <li class="<?= $navs[4]; ?>"><a href="sales.php">Վաճառք</a></li>
+                                <li class="<?= $navs[5]; ?>"><a href="report.php">Հաշվետվություն</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Դուրս գալ</a></li>

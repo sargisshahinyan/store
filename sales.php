@@ -18,21 +18,21 @@ $items = $item->get_items();
 ?>
 <article class="container">
     <div class="row">
-        <form class="col-md-offset-1 col-md-10" action="#">
-            <div class="form-group">
+        <form class="col-md-offset-2 col-md-8">
+            <div class="form-group col-md-12">
                 <label for="id">Կոդ</label>
-                <input type="text" id="id" class="form-control" name="id" placeholder="Կոդ">
+                <input type="text" id="id" class="form-control" placeholder="Կոդ">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-12">
                 <label for="category">Կատեգորիա</label>
-                <select id="category" class="form-control" name="category" required>
+                <select id="category" class="form-control">
                     <option selected value="">Ընտրված չէ</option>
                     <?php foreach($categories as $category) { ?>
                         <option value="<?= $category["ID"]; ?>"><?= $category["Name"]; ?></option>
                     <?php } ?>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6">
                 <label for="item">Ապրանք</label>
                 <select id="item" class="form-control" name="item" required>
                     <option selected disabled value="">Ընտրեք ապրանքը</option>
@@ -41,11 +41,13 @@ $items = $item->get_items();
                     <?php } ?>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6">
                 <label for="quantity">Քանակ</label>
                 <input type="number" min="1" id="quantity" class="form-control" placeholder="Քանակ">
             </div>
-            <button type="button" id="add-to-list" class="btn btn-primary">Ավելացնել</button>
+            <div class="form-group col-md-12 text-right">
+                <button type="button" id="add-to-list" class="btn btn-primary">Ավելացնել</button>
+            </div>
         </form>
     </div>
     <div class="row display">

@@ -6,7 +6,7 @@
  * Time: 0:37
  */
 
-define("NAV_TAB_NUMBER", 5);
+define("NAV_TAB_NUMBER", 6);
 
 function get_nav($index) {
     $navs = [];

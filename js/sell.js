@@ -7,9 +7,10 @@ $(document).ready(function () {
         $quantity = $("#quantity"),
         $itemsList = $("#item-list"),
         $addButton = $("#add-to-list"),
+        $id = $("#id"),
         itemsList = [];
 
-    $("#id").on("keyup", function () {
+    $id.on("keyup", function () {
         clearTimeout(idTimeout);
 
         idTimeout = setTimeout(function () {
@@ -32,11 +33,11 @@ $(document).ready(function () {
             url: "API.php/items/" + (parseInt(this.value) ? "?category=" + this.value : ""),
             dataType: "json"
         }).done(function (result) {
-            var html = "<option value='' selected disabled>Ընտրեք ապրանքը</option>";
+            var html = "<option value='' selected disabled>Ընտրեք ապրանքը</option>\n";
 
             if(result && result instanceof Array) {
                 result.forEach(function (item) {
-                    html += "<option value='" + item.ID + "'>" + item.Name + "</option>"
+                    html += "<option value='" + item.ID + "'>" + item.Name + "</option>\n"
                 });
             }
 
@@ -63,8 +64,9 @@ $(document).ready(function () {
         }
 
         $quantity.val("");
+        $id.val("");
         $items.find("option:selected").removeAttr("selected");
-        $items.find("option:first").prop("selected", "selected");
+        $items.find("option:first").attr("selected", "true");
 
         function find(item) {
             if(item.id == id) {

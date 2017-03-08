@@ -135,4 +135,25 @@ class Deal {
 
         return $result;
     }
+
+    public function get_profit($data = []) {
+        $purchases = $this->get_purchases($data);
+        $sales = $this->get_sales($data);
+
+        $proceeds = 0;
+        $expenditure = 0;
+
+        foreach ($purchases as $purchase) {
+            $proceeds += $purchase["Price"] * $purchase["Quantity"];
+        }
+
+        foreach ($sales as $sale) {
+            $expenditure += $sale["Price"] * $sale["Quantity"];
+        }
+
+        return  [
+            "proceeds" => $proceeds,
+            "expenditure" => $expenditure
+        ];
+    }
 }

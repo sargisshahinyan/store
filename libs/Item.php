@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Created by IntelliJ IDEA.
- * User: shahi
- * Date: 26.02.2017
- * Time: 22:07
- */
 class Item {
     private $db;
 

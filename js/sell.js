@@ -1,6 +1,3 @@
-/**
- * Created by shahi on 27.02.2017.
- */
 $(document).ready(function () {
     var idTimeout = setTimeout(function () {}, 0),
         $items = $("#item"),
@@ -11,6 +8,10 @@ $(document).ready(function () {
         itemsList = [];
 
     $id.on("keyup", function () {
+        if(!this.value) {
+            return;
+        }
+
         clearTimeout(idTimeout);
 
         idTimeout = setTimeout(function () {
@@ -45,35 +46,10 @@ $(document).ready(function () {
         });
     });
 
-    $addButton.click(function () {
-        var id = $items.find("option:selected").val(),
-            name = $items.find("option:selected").text(),
-            quantity = $quantity.val();
-
-        if(!itemsList.some(find) && id && quantity) {
-            itemsList.push({
-                id: id,
-                quantity: parseInt(quantity)
-            });
-
-            $itemsList.append(getListItemTemplate({
-                id: id,
-                quantity: quantity,
-                name: name
-            }));
-        }
-
-        $quantity.val("");
-        $id.val("");
-        $items.find("option:selected").removeAttr("selected");
-        $items.find("option:first").attr("selected", "true");
-
-        function find(item) {
-            if(item.id == id) {
-                item.quantity += parseInt(quantity || 0);
-                changeListItem(id, item.quantity);
-                return true;
-            }
+    $addButton.click(add);
+    $("form").on("keyup", function (e) {
+        if(e.keyCode == 13) {
+            add();
         }
     });
 
@@ -117,10 +93,43 @@ $(document).ready(function () {
                 items: itemsList
             }
         }).done(function () {
-            alert("OK");
+            alert("Done");
             location.reload();
         }).fail(function () {
-            alert("idiot");
+            alert("Fail");
         });
     });
+
+    function add() {
+        var id = $items.find("option:selected").val(),
+            name = $items.find("option:selected").text(),
+            quantity = $quantity.val();
+
+        if(!itemsList.some(find) && id && quantity) {
+            itemsList.push({
+                id: id,
+                quantity: parseInt(quantity)
+            });
+
+            $itemsList.append(getListItemTemplate({
+                id: id,
+                quantity: quantity,
+                name: name
+            }));
+        }
+
+        $quantity.val("");
+        $id.val("");
+        $items.find("option:selected").removeAttr("selected");
+        $items.find("option:first").attr("selected", "true");
+        $id.focus();
+
+        function find(item) {
+            if(item.id == id) {
+                item.quantity += parseInt(quantity || 0);
+                changeListItem(id, item.quantity);
+                return true;
+            }
+        }
+    }
 });

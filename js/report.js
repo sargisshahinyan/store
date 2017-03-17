@@ -1,6 +1,3 @@
-/**
- * Created by shahi on 27.02.2017.
- */
 $(document).ready(function () {
     var idTimeout = setTimeout(function () {}, 0),
         $purItems = $("#pur-item"),

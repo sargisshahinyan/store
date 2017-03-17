@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: shahi
- * Date: 26.02.2017
- * Time: 13:20
- */
 include "Functions.php";
 $navs = get_nav(2);
 include "header.php";

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: shahi
- * Date: 16.02.2017
- * Time: 22:32
- */
 include "libs.php";
 
 session_start();

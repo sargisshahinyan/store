@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: shahi
- * Date: 26.02.2017
- * Time: 20:54
- */
 include "Functions.php";
 $navs = get_nav(5);
 include "header.php";
@@ -19,10 +13,6 @@ $items = $item->get_items();
 <article class="container">
     <div class="row">
         <form class="col-md-offset-2 col-md-8">
-            <div class="form-group col-md-12">
-                <label for="id">Կոդ</label>
-                <input type="text" id="id" class="form-control" placeholder="Կոդ">
-            </div>
             <div class="form-group col-md-12">
                 <label for="category">Կատեգորիա</label>
                 <select id="category" class="form-control">
@@ -42,6 +32,10 @@ $items = $item->get_items();
                 </select>
             </div>
             <div class="form-group col-md-6">
+                <label for="id">Կոդ</label>
+                <input type="text" id="id" class="form-control" placeholder="Կոդ" autofocus>
+            </div>
+            <div class="form-group col-md-12">
                 <label for="quantity">Քանակ</label>
                 <input type="number" min="1" id="quantity" class="form-control" placeholder="Քանակ">
             </div>

@@ -1,11 +1,4 @@
 <?php
-
-/**
- * Created by IntelliJ IDEA.
- * User: shahi
- * Date: 26.02.2017
- * Time: 13:27
- */
 class Auth
 {
     private $db;

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: shahi
- * Date: 26.02.2017
- * Time: 13:33
- */
 
 include "libs.php";
 session_start();
@@ -22,7 +16,8 @@ $user = $auth->search_user($login, $password);
 
 if($user) {
     $_SESSION["user"] = $user["ID"];
-    header("Location:home.php");
+    $_SESSION["admin"] = $user["Admin"];
+    header("Location:sales.php");
 } else {
     header("Location:index.php");
 }

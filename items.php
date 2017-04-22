@@ -50,7 +50,7 @@ if (!isset($_GET["id"])) {
 ?>
     <article class="container">
         <div class="row">
-            <h3 class="col-md-offset-1 col-md-4">Նոր կատեգորիա</h3>
+            <h3 class="col-md-offset-1 col-md-4">Նոր ապրանք</h3>
             <h5><?= !empty($_SESSION['error']) ? $_SESSION["error"] : ""; ?></h5>
         </div>
         <div class="row">
@@ -81,9 +81,12 @@ if (!isset($_GET["id"])) {
             </form>
         </div>
         <div class="row">
-            <div class="list-group">
+            <div class="list-group container-fluid">
                 <?php foreach($items as $item) { ?>
-                    <a href="items.php?id=<?= $item["ID"]; ?>" class="list-group-item"><?= $item["Name"]; ?></a>
+                    <a href="items.php?id=<?= $item["ID"]; ?>" class="list-group-item row">
+                        <div class="col-xs-1 text-center"><?= $item["ID"]; ?></div>
+                        <div class="col-xs-4"><?= $item["Name"]; ?></div>
+                    </a>
                 <?php } ?>
             </div>
         </div>
@@ -98,12 +101,15 @@ if (!isset($_GET["id"])) {
         <div class="row">
             <form class="col-md-offset-1 col-md-10" method="post" action="items.php">
                 <div class="form-group">
+                    <h3 class="bold">Կոդ <?= $id; ?></h3>
+                </div>
+                <div class="form-group">
                     <label for="name">Անուն</label>
                     <input type="text" id="name" class="form-control" name="name" placeholder="Անուն" required value="<?= $it["Name"]; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="պռիցե">Գին</label>
-                    <input type="text" id="պռիցե" class="form-control" name="price" placeholder="Գին" required value="<?= $it["Price"]; ?>">
+                    <label for="price">Գին</label>
+                    <input type="text" id="price" class="form-control" name="price" placeholder="Գին" required value="<?= $it["Price"]; ?>">
                 </div>
                 <div class="form-group">
                     <label for="categoryID">Կատեգորիա</label>

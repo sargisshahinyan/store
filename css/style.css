@@ -9,9 +9,27 @@ div.display {
     padding-top: 50px;
     padding-bottom: 50px;
     margin: 20px 0;
+    position: relative;
+}
+
+div.display>ul {
+    height: 280px;
+    overflow: auto;
+}
+
+div.display>#total {
+    position: absolute;
+    right: 8.33333333%;
+    bottom: 10px;
+    font-size: 40px;
+    padding-right: 15px;
 }
 
 div.display span.del {
     cursor: pointer;
     background-color: #d9534f;;
+}
+
+.bold {
+    font-weight: bold;
 }

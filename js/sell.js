@@ -5,6 +5,7 @@ $(document).ready(function () {
         $itemsList = $("#item-list"),
         $addButton = $("#add-to-list"),
         $id = $("#id"),
+        $total = $("#total"),
         itemsList = [];
 
     $id.on("keyup", function () {
@@ -48,7 +49,7 @@ $(document).ready(function () {
 
     $addButton.click(add);
     $("form").on("keyup", function (e) {
-        if(e.keyCode == 13) {
+        if(e.keyCode === 13) {
             add();
         }
     });
@@ -66,7 +67,7 @@ $(document).ready(function () {
         $("#item-" + id).remove();
 
         itemsList.some(function (item, index, array) {
-            if(item.id == id) {
+            if(item.id === id) {
                 array.splice(index, 1);
                 return true;
             }
@@ -75,14 +76,18 @@ $(document).ready(function () {
 
     function getListItemTemplate(data) {
         return "<li id=\"item-" + data.id + "\" class=\"list-group-item\">" +
-        "<span>" + data.name + "</span>" +
-        "<span class=\"badge del\">X</span>" +
-        "<span class=\"badge\">" + data.quantity + "</span>" +
-        "</li>"
+            "<div class='col-xs-2'>" + data.name + "</div>" +
+            "<div class='col-xs-2 text-right price'>" + data.price + " դրամ</div>" +
+            "<div class='col-xs-4 text-right quantity'>" + data.quantity + "</div>" +
+            "<div class='col-xs-2 text-right sum'>" + data.quantity * data.price + " դրամ</div>" +
+            "<span class=\"badge del\">X</span>" +
+            "<div class='clearfix'></div>" +
+            "</li>";
     }
 
-    function changeListItem(id, quantity) {
-        $("#item-" + id + ">span:last").text(quantity);
+    function changeListItem(id, quantity, price) {
+        $("#item-" + id + ">div.quantity").text(quantity);
+        $("#item-" + id + ">div.sum").text(quantity * price + " դրամ");
     }
 
     $("#sell").click(function () {
@@ -102,19 +107,22 @@ $(document).ready(function () {
 
     function add() {
         var id = $items.find("option:selected").val(),
-            name = $items.find("option:selected").text(),
+            name = $items.find("option:selected").text().match(/^(.+) -/)[1],
+            price = parseInt($items.find("option:selected").text().match(/- (\d+)$/)[1]),
             quantity = $quantity.val();
 
         if(!itemsList.some(find) && id && quantity) {
             itemsList.push({
                 id: id,
-                quantity: parseInt(quantity)
+                quantity: parseInt(quantity),
+                price: price
             });
 
             $itemsList.append(getListItemTemplate({
                 id: id,
                 quantity: quantity,
-                name: name
+                name: name,
+                price: price
             }));
         }
 
@@ -124,10 +132,22 @@ $(document).ready(function () {
         $items.find("option:first").attr("selected", "true");
         $id.focus();
 
+        resetTotal();
+
+        function resetTotal () {
+            var sum = 0;
+
+            itemsList.forEach(function (item) {
+                sum += item.quantity * item.price;
+            });
+
+            $total.text(sum + " դրամ");
+        }
+
         function find(item) {
-            if(item.id == id) {
+            if(item.id === id) {
                 item.quantity += parseInt(quantity || 0);
-                changeListItem(id, item.quantity);
+                changeListItem(id, item.quantity, item.price);
                 return true;
             }
         }

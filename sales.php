@@ -27,7 +27,7 @@ $items = $item->get_items();
                 <select id="item" class="form-control" name="item" required>
                     <option selected disabled value="">Ընտրեք ապրանքը</option>
                     <?php foreach($items as $item) { ?>
-                        <option value="<?= $item["ID"]; ?>"><?= $item["Name"]; ?></option>
+                        <option value="<?= $item["ID"]; ?>"><?= $item["Name"]; ?> - <?= $item["Price"]; ?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -45,7 +45,16 @@ $items = $item->get_items();
         </form>
     </div>
     <div class="row display">
-        <ul id="item-list" class="list-group col-md-offset-1 col-md-10"></ul>
+        <ul id="item-list" class="list-group col-md-offset-1 col-md-10">
+            <li class="list-group-item list-group-item-heading bold">
+                <div class="col-xs-2">Անվանում</div>
+                <div class="col-xs-2 text-right">Գին</div>
+                <div class="col-xs-4 text-right">Քանակ</div>
+                <div class="col-xs-2 text-right">Գումար</div>
+                <div class="clearfix"></div>
+            </li>
+        </ul>
+        <div id="total"></div>
     </div>
     <div class="row">
         <div class="col-md-offset-10 col-md-2 text-right">

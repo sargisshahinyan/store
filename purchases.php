@@ -57,10 +57,6 @@ $items = $item->get_items();
     <div class="row">
         <form class="col-md-offset-2 col-md-8" method="post">
             <div class="form-group col-md-12">
-                <label for="id">Կոդ</label>
-                <input type="text" id="id" class="form-control" placeholder="Կոդ">
-            </div>
-            <div class="form-group col-md-12">
                 <label for="category">Կատեգորիա</label>
                 <select id="category" class="form-control">
                     <option selected value="">Ընտրված չէ</option>
@@ -69,7 +65,7 @@ $items = $item->get_items();
                     <?php } ?>
                 </select>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <label for="item">Ապրանք</label>
                 <select id="item" class="form-control" name="item" required>
                     <option selected disabled value="">Ընտրեք ապրանքը</option>
@@ -78,11 +74,15 @@ $items = $item->get_items();
                     <?php } ?>
                 </select>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
+                <label for="id">Կոդ</label>
+                <input type="text" id="id" class="form-control" placeholder="Կոդ" autofocus>
+            </div>
+            <div class="form-group col-md-6">
                 <label for="quantity">Քանակ</label>
                 <input type="number" min="1" id="quantity" name="quantity" class="form-control" placeholder="Քանակ" required>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <label for="price">Գին</label>
                 <input type="number" min="0" id="price" name="price" class="form-control" placeholder="Գին" required>
             </div>

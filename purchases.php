@@ -76,15 +76,15 @@ $items = $item->get_items();
             </div>
             <div class="form-group col-md-6">
                 <label for="id">Կոդ</label>
-                <input type="text" id="id" class="form-control" placeholder="Կոդ" autofocus>
+                <input type="text" id="id" class="form-control" autocomplete="off" placeholder="Կոդ" autofocus>
             </div>
             <div class="form-group col-md-6">
                 <label for="quantity">Քանակ</label>
-                <input type="number" min="1" id="quantity" name="quantity" class="form-control" placeholder="Քանակ" required>
+                <input type="number" min="1" id="quantity" name="quantity" class="form-control" autocomplete="off" placeholder="Քանակ" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="price">Գին</label>
-                <input type="number" min="0" id="price" name="price" class="form-control" placeholder="Գին" required>
+                <input type="number" min="0" id="price" name="price" class="form-control" autocomplete="off" placeholder="Գին" required>
             </div>
             <div class="form-group col-md-12 text-right">
                 <button type="submit" class="btn btn-primary">Մուտագրել</button>

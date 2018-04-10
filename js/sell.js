@@ -39,7 +39,7 @@ $(document).ready(function () {
 
             if(result && result instanceof Array) {
                 result.forEach(function (item) {
-                    html += "<option value='" + item.ID + "'>" + item.Name + "</option>\n"
+                    html += "<option value='" + item.ID + "'>" + item.Name + " - "  + item.Price + "</option>\n"
                 });
             }
 

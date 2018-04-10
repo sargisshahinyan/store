@@ -33,11 +33,11 @@ $items = $item->get_items();
             </div>
             <div class="form-group col-md-6">
                 <label for="id">Կոդ</label>
-                <input type="text" id="id" class="form-control" placeholder="Կոդ" autofocus>
+                <input type="text" id="id" class="form-control" autocomplete="off" placeholder="Կոդ" autofocus>
             </div>
             <div class="form-group col-md-12">
                 <label for="quantity">Քանակ</label>
-                <input type="number" min="1" id="quantity" class="form-control" placeholder="Քանակ">
+                <input type="number" min="1" id="quantity" class="form-control" autocomplete="off" placeholder="Քանակ">
             </div>
             <div class="form-group col-md-12 text-right">
                 <button type="button" id="add-to-list" class="btn btn-primary">Ավելացնել</button>
